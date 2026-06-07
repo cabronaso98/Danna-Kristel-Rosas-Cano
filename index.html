@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Educativo Interactivo</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#eef2ff;
+    transition:.5s;
+}
+
+.dark{
+    background:#1a1a1a;
+    color:white;
+}
+
+header{
+    background:#1e40af;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+nav{
+    background:#2563eb;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:15px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+section{
+    width:90%;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,.2);
+}
+
+.dark section{
+    background:#2c2c2c;
+}
+
+.tarjeta{
+    padding:15px;
+    margin:10px 0;
+    border-left:5px solid #2563eb;
+    background:#f8fafc;
+}
+
+.dark .tarjeta{
+    background:#3a3a3a;
+}
+
+button{
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+#reloj{
+    margin-top:10px;
+    font-size:20px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>📚 Portal Educativo Interactivo</h1>
+<h2>Danna Kristel Rosas Cano 2G</h2>
+<p>Ciencias Naturales • Inglés • Cultura Digital • Pensamiento Matemático</p>
+
+<div id="reloj"></div>
+
+<br>
+
+<button onclick="modo()">🌙 Cambiar tema</button>
+
+</header>
+
+<nav>
+<a href="#ciencias">Ciencias</a>
+<a href="#ingles">Inglés</a>
+<a href="#digital">Cultura Digital</a>
+<a href="#mate">Matemáticas</a>
+</nav>
+
+<section id="ciencias">
+
+<h2>🧪 Ciencias Naturales y Tecnología</h2>
+
+<div class="tarjeta">
+<h3>Tipos de Energía</h3>
+<p>Solar ☀️, Eólica 🌬️, Eléctrica ⚡ e Hidráulica 💧.</p>
+</div>
+
+<div class="tarjeta">
+<h3>Sistema Solar</h3>
+<p>El Sol es la estrella principal y los planetas giran a su alrededor.</p>
+</div>
+
+</section>
+
+<section id="ingles">
+
+<h2>🌎 Inglés</h2>
+
+<div class="tarjeta">
+Computer = Computadora
+</div>
+
+<div class="tarjeta">
+Keyboard = Teclado
+</div>
+
+<div class="tarjeta">
+Mouse = Ratón
+</div>
+
+<button onclick="quiz()">Pregunta de inglés</button>
+
+<h3 id="pregunta"></h3>
+
+</section>
+
+<section id="digital">
+
+<h2>💻 Cultura Digital</h2>
+
+<div class="tarjeta">
+Hardware: Componentes físicos de una computadora.
+</div>
+
+<div class="tarjeta">
+Software: Programas y aplicaciones.
+</div>
+
+<div class="tarjeta">
+Internet permite compartir información a nivel mundial.
+</div>
+
+</section>
+
+<section id="mate">
+
+<h2>📐 Pensamiento Matemático</h2>
+
+<input type="number" id="n1">
+<input type="number" id="n2">
+
+<button onclick="sumar()">Sumar</button>
+
+<h2 id="resultado"></h2>
+
+</section>
+
+<script>
+
+function sumar(){
+
+let a = Number(document.getElementById("n1").value);
+let b = Number(document.getElementById("n2").value);
+
+document.getElementById("resultado").innerHTML =
+"Resultado: " + (a+b);
+
+}
+
+function modo(){
+
+document.body.classList.toggle("dark");
+
+}
+
+function quiz(){
+
+document.getElementById("pregunta").innerHTML =
+"Keyboard = Teclado ✅";
+
+}
+
+setInterval(function(){
+
+let hora = new Date();
+
+document.getElementById("reloj").innerHTML =
+hora.toLocaleTimeString();
+
+},1000);
+
+</script>
+
+</body>
+</html>
